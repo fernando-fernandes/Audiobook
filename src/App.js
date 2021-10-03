@@ -1,9 +1,12 @@
+import { Fragment } from 'react';
+import Topbar from './Components/TopBar'
+import './Styles/app.scss'
 
 function App() {
   return (
-    <div>
-      <h1>Audiobook</h1>
-    </div>
+    <Fragment>
+      <Topbar />
+    </Fragment>
   );
 }
 

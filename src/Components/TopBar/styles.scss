@@ -1,0 +1,20 @@
+@import '../../Styles/colors', '../../Styles/variables';
+
+.topbar-container {
+    @extend %container;
+    @include font(300, 1.1rem);
+    background: $blue;
+    display: flex;
+    align-items: center;
+    height: 3.2rem;
+    color: rgba($white, .8);
+
+
+    .div-logo {
+        margin-right: 1.5rem;
+
+        img {
+            width: 6rem;
+        }
+    }
+}
