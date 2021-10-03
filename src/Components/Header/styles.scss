@@ -1,0 +1,39 @@
+.header-container {
+    @extend %container;
+
+    //background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    // background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    background-color: $cyan;
+    min-height: 8rem;
+    display: flex;
+
+    .area-profile {
+        width: 50%;
+        position: relative;
+
+
+    }
+}
+
+.profile-container {
+    $size: 8rem;
+
+    width: $size;
+    height: $size;
+    background: lime;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include radius();
+
+    @include media(phone) {
+        $size: 2rem;
+        width: $size;
+    height: $size;
+        background: red;
+    }
+}

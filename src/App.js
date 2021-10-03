@@ -1,11 +1,12 @@
 import { Fragment } from 'react';
+import Header from './Components/Header';
 import Topbar from './Components/TopBar'
-import './Styles/app.scss'
 
 function App() {
   return (
     <Fragment>
       <Topbar />
+      <Header/>
     </Fragment>
   );
 }

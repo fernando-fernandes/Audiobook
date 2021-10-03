@@ -1,6 +1,4 @@
 import { LogoWhite } from '../Brand'
-import './styles.scss'
-
 
 const AppTitle = () => <p>Audiobook</p>
 

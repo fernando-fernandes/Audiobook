@@ -1,0 +1,26 @@
+$openSans: 'Open Sans', sans-serif;
+$transition: all 80ms ease-in-out;
+
+
+%container {
+    padding: 0 5rem;
+}
+
+@mixin  font($weight, $size: 1rem, $family: $openSans) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+@mixin columns($numCol, $paddingX){
+    padding: 0 $paddingX;
+    width: calc(100% / #{$numCol} - .01rem);
+    display: inline-block;
+    font-size: 1rem;
+    margin: 2em 0;
+    vertical-align: top;
+}
+
+@mixin radius($value: .5rem) {
+    border-radius: $value;
+}

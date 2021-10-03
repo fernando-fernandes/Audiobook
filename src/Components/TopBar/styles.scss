@@ -1,5 +1,3 @@
-@import '../../Styles/colors', '../../Styles/variables';
-
 .topbar-container {
     @extend %container;
     @include font(300, 1.1rem);
