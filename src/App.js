@@ -2,46 +2,77 @@ import Topbar from './Components/TopBar';
 import Header from './Components/Header';
 import Levels from './Components/Levels';
 import Lessons from './Components/Lessons';
+import Subjects from './Components/Subjects';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from './Services/api'
 
 function App() {
 
   const [aluno, setAluno] = useState([]);
 
-  useEffect( () => {
 
-    axios.get('/api/Profile')
-    .then( res => {
-      const dadosAluno = res.data;
+  // const sendGetRequest = async () => {
 
-      setAluno(dadosAluno);
-    })
+  //   try {
+  //     const resp = await axios.get('/api/Profile')
+
+  //     setAluno(resp.data)
+
+  //   } catch (err) {
+  //     console.error(err)
+  //   }
+  // }
+
+  const sendGetRequest = async () => {
+
+    try {
+      const response = await api.get('')
+
+      //setAluno(response.data)
+
+      console.log(response.data)
+
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  useEffect(() => {
+
+    sendGetRequest()
+
+    // axios.get('/api/Profile')
+    // .then( res => {
+    //   const dadosAluno = res.data;
+
+    //   setAluno(dadosAluno);
+    // })
 
   }, [])
 
 
-  
+
   return (
     <div className="container">
 
       <Topbar />
-      <Header nome={aluno.profileName} email={aluno.profileEmail}/>
+      <Header profile={aluno} />
 
       <div className="content">
 
         <div className="col-left">
-          <Levels/>
+          <Subjects />
+          <Levels />
         </div>
 
         <div className="col-right">
-          <Lessons/>
+          <Lessons />
         </div>
-   
+
       </div>
 
     </div>
   );
 }
 
-export default App; 
+export default App;

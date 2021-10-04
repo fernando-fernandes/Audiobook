@@ -1,0 +1,96 @@
+.area-info {
+  // width: 50%;
+  flex: 0 0 auto;
+  padding: 1rem;
+
+  .subjects {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    color: rgba($white, 0.8);
+    border-bottom: solid 1px rgba($white, 0.3);
+    @include font(400, 0.9rem);
+  }
+
+  .flag {
+    $size: 1.8rem;
+
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+
+    .flag-input {
+      position: absolute;
+      z-index: 66;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    .flag-name {
+      transition: $transition;
+      display: inline-flex;
+      align-items: center;
+      border-radius: $size * 10;
+      margin: 0 0.5rem;
+      // border: solid 1px lighten($cyan, 15%);
+      // background-color: rgba($blue, .5);
+
+      padding: 0.5rem {
+        right: 1.5rem;
+      }
+
+      .flag-name_img {
+        display: block;
+        width: $size;
+        height: $size;
+        line-height: 0;
+        border: none;
+        border-radius: $size * 10;
+        overflow: hidden;
+        position: relative;
+        background: $white;
+
+        img.left {
+          width: $size + 2rem;
+          position: absolute;
+          left: -0.5rem;
+          top: 0;
+          // transform: translate(-50%, -50%);d
+        }
+
+        img.center {
+          width: $size + 0.5rem;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .flag-name_title {
+        @include font(400, 0.9rem);
+        color: $white;
+        margin-left: 0.7rem;
+      }
+    }
+
+    &:hover {
+      input ~ .flag-name {
+        // border: solid 1px rgba($orange, 1);
+        //border: solid 2px lighten($orange, 15%);
+        background-color: rgba($blue, 0.7);
+      }
+    }
+
+    input:checked ~ .flag-name {
+      // background-color: rgba($blue-dark, .9);
+      background: rgba(#3165cf, 0.8);
+      box-shadow: rgba($black, 0.6) 5px 5px 40px -15px;
+      // border: solid 1px rgba($white, .3);
+      // border-color: transparent;
+    }
+  }
+}
