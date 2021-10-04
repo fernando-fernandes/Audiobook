@@ -1,0 +1,52 @@
+.levels {
+
+  width: 100%;
+
+  li {
+    
+    button {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      border: none;
+      border-bottom: solid 1px $cyan;
+      padding: 0.7rem;
+      justify-content: space-between;
+      background-color: $white;
+      cursor: pointer;
+
+      .title {
+        $size: 2.5rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .icon {
+          width: $size;
+          height: $size;
+          background: #ccc;
+          border-radius: $size * 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include font(700, .8rem);
+          flex: 0 0 auto;
+        }
+
+        .name {
+          @include font(400, .8rem);
+          flex: 0 1 auto;
+          text-align: left;
+          margin: 0 .6rem;
+        }
+      }
+
+      .qdt-tracks {
+        @include font(300, .8rem);
+        color: darken($gray, 40%);
+        flex: 0 0 auto;
+      }
+    }
+  }
+}

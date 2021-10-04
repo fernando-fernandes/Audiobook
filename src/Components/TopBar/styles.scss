@@ -9,6 +9,7 @@
     box-shadow: rgba($cyan, .9) 0 2px 30px -5px;
     z-index: 1;
     position: relative;
+    flex-shrink: 0;
 
     .div-logo {
         margin-right: 1.5rem;

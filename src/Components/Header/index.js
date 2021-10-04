@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Flag from 'react-world-flags'
 
-export default function Header() {
+export default function Header({nome, email}) {
     return (
         <div className="header-container">
             <div className="area-profile">
@@ -10,7 +10,8 @@ export default function Header() {
                     <FontAwesomeIcon icon={faUser} />
                 </div>
                 <div className="username">
-                    <h1>Nome do aluno</h1>
+                    <h1>{nome}</h1>
+                    <p>{email}</p>
                 </div>
             </div>
 
@@ -19,7 +20,7 @@ export default function Header() {
                 <h4 className="subjects">Disciplinas</h4> 
                 
                 <label className="flag">
-                    <input type="radio" className="flag-input" name="subjects" checked />
+                    <input type="radio" className="flag-input" name="subjects" />
                     <div className="flag-name">
                         <div className="flag-name_img">
                             <Flag code='US' className="left" />
