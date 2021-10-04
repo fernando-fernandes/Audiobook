@@ -28,9 +28,9 @@ function App() {
     try {
       const response = await api.get('')
 
-      //setAluno(response.data)
+      setAluno(response.data)
 
-      console.log(response.data)
+      //console.log([aluno])
 
     } catch (err) {
       console.error(err)
@@ -62,11 +62,14 @@ function App() {
 
         <div className="col-left">
           <Subjects />
-          <Levels />
+
+          <div className="container-levels">
+            <Levels />
+          </div>
         </div>
 
         <div className="col-right">
-          <Lessons />
+          {/* <Lessons /> */}
         </div>
 
       </div>

@@ -2,7 +2,7 @@
 @import "../Components/Header/styles.scss";
 @import "../Components/Levels/styles.scss";
 @import "../Components/Lessons/styles.scss";
-@import '../Components/Subjects/styles.scss';
+@import "../Components/Subjects/styles.scss";
 
 body {
   font-family: $openSans;
@@ -17,25 +17,23 @@ body {
 }
 
 .content {
+  @extend %container;
   display: flex;
-  
+  margin-top: 5rem;
 
   .col-left {
-	width: 18rem;
-    background-color: $cyan;
-	position: fixed;
-	z-index: 0;
-	bottom: 0;
-	overflow-y: auto;
-	height: calc(100vh - 185px);
-	display: flex;
-	justify-content: center;
+    border: solid 1px $gray;
+	@include radius();
+	width: 30%;
+	flex: 0 0 auto;
   }
 
   .col-right {
     background-color: $gray;
-	width: calc(100vw - 18rem);
-	right: 0;
-	position: absolute;
   }
+}
+
+.container-levels {
+//   overflow-y: auto;
+//   max-height: 15rem;
 }

@@ -17,7 +17,7 @@ export default function Header({profile}) {
             </div>
 
             <div className="area-settings">
-                <p>id: {profile.profileID}</p>
+                {/* <p>id: {profile.profileID}</p> */}
 
                 {
                     // profile.profileSubject.map( i => {

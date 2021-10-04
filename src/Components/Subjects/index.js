@@ -2,9 +2,9 @@ import Flag from 'react-world-flags'
 
 export default function Subjects() {
     return (
-        <div className="area-info">
+        <div className="container-subjects">
 
-            <h4 className="subjects">Disciplinas</h4>
+            {/* <h4 className="subjects">Disciplinas</h4> */}
 
             <label className="flag">
                 <input type="radio" className="flag-input" name="subjects" />
