@@ -77,13 +77,18 @@ function App() {
 
   function handleLevel(e) {
 
-    let levelId = e.currentTarget.value
+    let btnId = e.currentTarget.value
 
+    let btnLevel = level.filter( element => {
+      return element.levelID === parseFloat(btnId)
+    } ).map( itemId => {
+      return itemId.levelLesson
+    } )
 
-    console.log(level)
+    setLesson(btnLevel[0]);
 
+    console.log(btnLevel[0])
 
-    console.log(levelId)
 
   }
 
