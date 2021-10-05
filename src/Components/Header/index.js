@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Header({profile}) {
@@ -13,6 +13,7 @@ export default function Header({profile}) {
                 <div className="username">
                     <h1>{profile.profileName}</h1>
                     <p>{profile.profileEmail}</p>
+                    <button type="button"><FontAwesomeIcon icon={faPen} /> <span>Editar</span></button>
                 </div>
             </div>
 

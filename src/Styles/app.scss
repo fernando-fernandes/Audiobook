@@ -8,32 +8,30 @@ body {
   font-family: $openSans;
 }
 
-// #root {
-//   height: 100%;
-// }
-
 .container {
-  // height: 100%;
   margin-bottom: 10rem;
 }
 
 .content {
   @extend %container;
   display: flex;
-  margin-top: 5rem;
+  position: relative;
+  z-index: 1;
 
   .col-left {
     border: solid 1px $gray;
-    @include radius();
+    @include radius(.3rem);
     width: 30%;
     flex: 0 0 auto;
+    box-shadow: rgba($black, .1) 0 -10px 20px -4px;
   }
 
   .col-right {
     background-color: lighten($gray, 15%);
     flex: 1 0 auto;
-    @include radius();
+    @include radius(.3rem);
     margin-left: 2rem;
     padding: 2rem;
+    box-shadow: rgba($black, .1) 0 -10px 20px -4px;
   }
 }

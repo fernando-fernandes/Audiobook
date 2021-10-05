@@ -1,20 +1,28 @@
 .header-container {
-  @extend %container;
-  $size: 6rem;
 
-  //background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  // background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
-  //background-color: $cyan;
-  background-image: linear-gradient(120deg, #4481eb 0%, #04befe 100%);
-  height: 8rem;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20rem;
+    background-image: linear-gradient(120deg, #4481eb 0%, #04befe 100%);   
+    z-index: -1;
+  }
+
+
+  @extend %container;
+  $size: 7rem;
+
+  height: 15rem;
   display: flex;
-  align-items: flex-end;
-  flex-shrink: 0;
+  align-items: center;
   z-index: 1;
   position: relative;
 
   .area-profile {
-    // width: 50%;
     flex: 1 0 auto;
     position: relative;
     display: flex;
@@ -23,50 +31,60 @@
     .profile {
       width: $size;
       height: $size;
-      background: $gray;
-      position: absolute;
-      top: 100%;
-      transform: translateY(-70%);
+      background-color: rgba($white, .05);
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: $size / 2;
-      //border: solid 1px $white;
-      box-shadow: rgba($black, 0.6) 5px -2px 30px -12px;
-      color: darken($gray, 10%);
+      border: solid 1px rgba($white, .6);
+      color: rgba($white, .35);
 
-      @include radius();
+      @include radius(60rem);
 
-      // @include media(phone) {
-      //     $size: 2rem;
-      //     width: $size;
-      //     height: $size;
-      //     background: red;
-      // }
+  
     }
 
     .username {
-      height: 4.5rem;
+      height: $size;
       display: flex;
       align-items: flex-start;
+      align-content: flex-end;
       justify-content: flex-start;
       flex-direction: column;
 
       margin: {
-        left: $size + 2rem;
-        right: 1rem;
+        left: 2rem;
       }
 
       h1 {
         color: $white;
         display: inline-block;
-        @include font(400, 1.6rem);
+        @include font(400, 1.7rem);
         margin-bottom: .4rem
       }
 
       p {
-        @include font(300, .85rem);
+        @include font(300, .9rem);
         color: rgba($white, .9);
+      }
+
+      button {
+        margin-top: 1rem;
+        border-radius: 10rem;
+        border: solid 1px rgba($white, .02);
+        background: rgba($white, .05);
+        color: rgba($white, .75);
+        font-size: .78rem;
+        padding: .4rem .8rem;
+        box-sizing: content-box;
+
+        &:hover {
+          border: solid 1px rgba($white, .2)
+        }
+
+        span {
+          margin-left: .4rem;
+        }
       }
     }
   }
