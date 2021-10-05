@@ -43,32 +43,8 @@
       }
 
       .flag-name_img {
-        // display: block;
-        // width: $size;
-        // height: auto;
         line-height: 0;
         width: $size;
-        // border: none;
-        // border-radius: .2rem;
-        // overflow: hidden;
-        // position: relative;
-        // background: lime;
-        
-
-        img.left {
-          width: $size + 2rem;
-          position: absolute;
-          left: -0.5rem;
-          top: 0;
-        }
-
-        img {
-          
-          // position: absolute;
-          // left: 50%;
-          // top: 50%;
-          // transform: translate(-50%, -50%);
-        }
       }
 
       .flag-name_title {
