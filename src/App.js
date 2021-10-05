@@ -8,47 +8,90 @@ import api from './Services/api'
 
 function App() {
 
-  const [aluno, setAluno] = useState([]);
+  const [studant, setStudant] = useState([]);
+  const [displpaySubject, setDisplaySubject] = useState([]);
+  const [level, setLevel] = useState([]);
+  const [lesson, setLesson] = useState([]);
 
+  const [loading, setLoading] = useState(false);
 
-  // const sendGetRequest = async () => {
-
-  //   try {
-  //     const resp = await axios.get('/api/Profile')
-
-  //     setAluno(resp.data)
-
-  //   } catch (err) {
-  //     console.error(err)
-  //   }
-  // }
-
-  const sendGetRequest = async () => {
-
-    try {
-      const response = await api.get('')
-
-      setAluno(response.data)
-
-      //console.log([aluno])
-
-    } catch (err) {
-      console.error(err)
-    }
-  }
 
   useEffect(() => {
 
-    sendGetRequest()
+    const getStudant = async () => {
 
-    // axios.get('/api/Profile')
-    // .then( res => {
-    //   const dadosAluno = res.data;
+      setLoading(true);
 
-    //   setAluno(dadosAluno);
-    // })
+      try {
+        const response = await api.get('/Profile')
+
+        setStudant(response.data)
+
+        const data = {
+          id: response.data.profileSubject
+        }
+
+        setDisplaySubject(data);
+
+      } catch (err) {
+        console.error(err)
+
+      } finally {
+        setLoading(false);
+      }
+
+    }
+
+    getStudant();
 
   }, [])
+
+
+
+  const getLevels = async (id) => {
+
+    //setLoading(true);
+
+    try {
+      const response = await api.get(`/SubjectDetail/${id}`)
+
+      setLevel(response.data)
+
+    } catch (err) {
+      console.error(err)
+
+    } finally {
+      //setLoading(false);
+    }
+
+  }
+
+
+  function handleSubject(e) {
+
+    let subjectId = e.currentTarget.value
+
+    getLevels(subjectId);
+  }
+
+
+  function handleLevel(e) {
+
+    let levelId = e.currentTarget.value
+
+
+    console.log(level)
+
+
+    console.log(levelId)
+
+  }
+
+
+  if (loading) {
+    return <p>Data is loading...</p>;
+  }
+
 
 
 
@@ -56,20 +99,22 @@ function App() {
     <div className="container">
 
       <Topbar />
-      <Header profile={aluno} />
+
+      <Header profile={studant} />
+
 
       <div className="content">
 
         <div className="col-left">
-          <Subjects />
+          <Subjects subject={displpaySubject} handleSubject={handleSubject} />
 
           <div className="container-levels">
-            <Levels />
+            <Levels level={level} handleLevel={handleLevel} />
           </div>
         </div>
 
         <div className="col-right">
-          {/* <Lessons /> */}
+          <Lessons lesson={lesson} />
         </div>
 
       </div>

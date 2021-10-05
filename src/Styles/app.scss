@@ -8,12 +8,13 @@ body {
   font-family: $openSans;
 }
 
-#root {
-  height: 100%;
-}
+// #root {
+//   height: 100%;
+// }
 
 .container {
-  height: 100%;
+  // height: 100%;
+  margin-bottom: 10rem;
 }
 
 .content {
@@ -23,17 +24,16 @@ body {
 
   .col-left {
     border: solid 1px $gray;
-	@include radius();
-	width: 30%;
-	flex: 0 0 auto;
+    @include radius();
+    width: 30%;
+    flex: 0 0 auto;
   }
 
   .col-right {
-    background-color: $gray;
+    background-color: lighten($gray, 15%);
+    flex: 1 0 auto;
+    @include radius();
+    margin-left: 2rem;
+    padding: 2rem;
   }
-}
-
-.container-levels {
-//   overflow-y: auto;
-//   max-height: 15rem;
 }

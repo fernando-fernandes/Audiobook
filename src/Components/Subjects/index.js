@@ -1,30 +1,35 @@
 import Flag from 'react-world-flags'
 
-export default function Subjects() {
+export default function Subjects(props) {
+
+
     return (
         <div className="container-subjects">
 
             {/* <h4 className="subjects">Disciplinas</h4> */}
 
-            <label className="flag">
-                <input type="radio" className="flag-input" name="subjects" />
-                <div className="flag-name">
-                    <div className="flag-name_img">
-                        <Flag code='US' className="left" />
-                    </div>
-                    <span className="flag-name_title">Inglês</span>
-                </div>
-            </label>
+            {
+                props.subject.id && props.subject.id.map(item => {
 
-            <label className="flag">
-                <input type="radio" className="flag-input" name="subjects" />
-                <div className="flag-name">
-                    <div className="flag-name_img">
-                        <Flag code='JP' className="center" />
-                    </div>
-                    <span className="flag-name_title">Japonês</span>
-                </div>
-            </label>
+                    return (
+                        <label key={item.subjectID} className="flag">
+
+                            <input type="radio" className="flag-input" name="subjects"
+                                onChange={props.handleSubject}
+                                value={item.subjectID}
+                            />
+
+                            <div className="flag-name">
+                                <div className="flag-name_img">
+                                    <Flag code={item.subjectName === 'Inglês' ? 'US' : 'JP'} />
+                                </div>
+                                <span className="flag-name_title">{item.subjectName}</span>
+                            </div>
+
+                        </label>
+                    )
+                })
+            }
         </div>
     )
 }

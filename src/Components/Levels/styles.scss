@@ -9,11 +9,13 @@
       width: 100%;
       align-items: center;
       border: none;
-      border-bottom: solid 1px $cyan;
+      border-bottom: solid 1px $gray;
       padding: 0.7rem;
       justify-content: space-between;
       background-color: $white;
       cursor: pointer;
+
+      
 
       .title {
         $size: 2.5rem;
@@ -46,6 +48,16 @@
         @include font(300, .8rem);
         color: darken($gray, 40%);
         flex: 0 0 auto;
+      }
+
+
+      &:hover {
+        background-color: $cyan;
+        color: $white;
+
+        .qdt-tracks {
+          color: $white;
+        }
       }
     }
   }

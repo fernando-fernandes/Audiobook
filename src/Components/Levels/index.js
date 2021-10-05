@@ -1,107 +1,30 @@
-export default function Levels() {
+export default function Levels(props) {
     return (
+
         <ul className="levels">
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
+            {
+                props.level.map(item => {
+                    return (
+                        <li key={item.levelID}>
 
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
+                            <button type="button" onClick={props.handleLevel} value={item.levelID}>
 
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
+                                <div className="title">
+                                    <span className="icon">X</span>
+                                    <span className="name">{item.levelName}</span>
+                                </div>
+                                <span className="qdt-tracks">{item.levelLesson.length} faixas</span>
 
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
+                            </button>
+                            
+                        </li>
 
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
-
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
-
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
-
-            <li>
-                <button type="button">
-                    <div className="title">
-                        <span className="icon">7A</span>
-                        <span className="name">Estágio 7A</span>
-                    </div>
-                    <span className="qdt-tracks">24 faixas</span>
-                </button>
-            </li>
-
-            <p>last</p>
-
+                        
+                    )
+                })
+            }
 
         </ul>
+
     )
 }
