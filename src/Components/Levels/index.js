@@ -10,7 +10,7 @@ export default function Levels(props) {
                             <button type="button" onClick={props.handleLevel} value={item.levelID}>
 
                                 <div className="title">
-                                    <span className="icon">X</span>
+                                    <span className="icon">{item.levelID}</span>
                                     <span className="name">{item.levelName}</span>
                                 </div>
                                 <span className="qdt-tracks">{item.levelLesson.length} faixas</span>

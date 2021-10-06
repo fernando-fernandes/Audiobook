@@ -87,9 +87,6 @@ function App() {
 
     setLesson(btnLevel[0]);
 
-    console.log(btnLevel[0])
-
-
   }
 
 

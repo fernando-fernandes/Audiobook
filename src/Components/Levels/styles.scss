@@ -9,12 +9,12 @@
       width: 100%;
       align-items: center;
       border: none;
-      border-bottom: solid 1px $gray;
       padding: 0.7rem;
       justify-content: space-between;
       background-color: $white;
       cursor: pointer;
-
+      border-bottom: solid 1px lighten($gray, 10%);
+      border-right: solid 5px transparent;
       
 
       .title {
@@ -53,10 +53,16 @@
 
       &:hover {
         background-color: $cyan;
+        border-right: solid 5px $blue-dark;
         color: $white;
 
         .qdt-tracks {
           color: $white;
+        }
+
+        .icon {
+          background-color: $white;
+          color: $blue-dark;
         }
       }
     }
