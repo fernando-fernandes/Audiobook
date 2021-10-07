@@ -8,121 +8,148 @@ import api from './Services/api'
 
 function App() {
 
-  const [studant, setStudant] = useState([]);
-  const [displpaySubject, setDisplaySubject] = useState([]);
-  const [level, setLevel] = useState([]);
-  const [lesson, setLesson] = useState([]);
+    const [studant, setStudant] = useState([]);
+    const [displpaySubject, setDisplaySubject] = useState([]);
+    const [level, setLevel] = useState([]);
+    const [lesson, setLesson] = useState([]);
+    const [btnMobile, setBtnMobile] = useState(false);
 
-  const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
 
-  useEffect(() => {
+    useEffect(() => {
 
-    const getStudant = async () => {
+        const getStudant = async () => {
 
-      setLoading(true);
+            setLoading(true);
 
-      try {
-        const response = await api.get('/Profile')
+            try {
+                const response = await api.get('/Profile')
 
-        setStudant(response.data)
+                setStudant(response.data)
 
-        const data = {
-          id: response.data.profileSubject
+                const data = {
+                    id: response.data.profileSubject
+                }
+
+                setDisplaySubject(data);
+
+            } catch (err) {
+                console.error(err)
+
+            } finally {
+                setLoading(false);
+            }
+
         }
 
-        setDisplaySubject(data);
+        getStudant();
 
-      } catch (err) {
-        console.error(err)
+    }, [])
 
-      } finally {
-        setLoading(false);
-      }
+
+
+    const getLevels = async (id) => {
+
+        //setLoading(true);
+
+        try {
+            const response = await api.get(`/SubjectDetail/${id}`)
+
+            setLevel(response.data)
+
+        } catch (err) {
+            console.error(err)
+
+        } finally {
+            //setLoading(false);
+        }
 
     }
 
-    getStudant();
 
-  }, [])
+    function handleSubject(e) {
 
+        let subjectId = e.currentTarget.value
 
+        getLevels(subjectId);
 
-  const getLevels = async (id) => {
-
-    //setLoading(true);
-
-    try {
-      const response = await api.get(`/SubjectDetail/${id}`)
-
-      setLevel(response.data)
-
-    } catch (err) {
-      console.error(err)
-
-    } finally {
-      //setLoading(false);
     }
 
-  }
+
+    function handleLevel(e) {
+
+        let btnId = e.currentTarget.value
+
+        let btnLevel = level.filter(element => {
+            return element.levelID === parseFloat(btnId)
+        }).map(itemId => {
+            return itemId.levelLesson
+        })
+
+        setLesson(btnLevel[0]);
+
+        handleBtnMobile()
+
+    }
 
 
-  function handleSubject(e) {
+    function handleBtnMobile() {
 
-    let subjectId = e.currentTarget.value
+        setBtnMobile(!btnMobile)
 
-    getLevels(subjectId);
-  }
-
-
-  function handleLevel(e) {
-
-    let btnId = e.currentTarget.value
-
-    let btnLevel = level.filter( element => {
-      return element.levelID === parseFloat(btnId)
-    } ).map( itemId => {
-      return itemId.levelLesson
-    } )
-
-    setLesson(btnLevel[0]);
-
-  }
+        const body = document.querySelector('body')
 
 
-  if (loading) {
-    return <p>Data is loading...</p>;
-  }
+        if (btnMobile) {
+            body.classList.remove('noScroll')
+        } else {
+            body.classList.add('noScroll')
+        }
+
+        
+
+    }
+
+
+    if (loading) {
+        return <p>Data is loading...</p>;
+    }
 
 
 
 
-  return (
-    <div className="container">
+    return (
+        <div className="container">
 
-      <Topbar />
+            <Topbar />
 
-      <Header profile={studant} />
+            <Header profile={studant} openBtnMobile={handleBtnMobile} />
 
 
-      <div className="content">
+            <div className="content">
 
-        <div className="col-left">
-          <Subjects subject={displpaySubject} handleSubject={handleSubject} />
 
-          <div className="container-levels">
-            <Levels level={level} handleLevel={handleLevel} />
-          </div>
+                    <div className={`col-left ${btnMobile ? 'active' : ''}`}>
+                        <button type="button" className="closeBtnMobile" onClick={handleBtnMobile}>Fechar</button>
+
+                        <Subjects subject={displpaySubject} handleSubject={handleSubject} />
+
+                        <div className="container-levels">
+                            <Levels level={level} handleLevel={handleLevel} />
+                        </div>
+                    </div>
+
+                
+
+                <div className="col-right">
+                    <Lessons lesson={lesson} />
+                </div>
+
+            </div>
+
         </div>
-
-        <div className="col-right">
-          <Lessons lesson={lesson} />
-        </div>
-
-      </div>
-
-    </div>
-  );
+    );
 }
 
 export default App;

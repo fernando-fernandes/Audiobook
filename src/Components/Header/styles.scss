@@ -1,5 +1,20 @@
 .header-container {
 
+  @extend %container;
+  $size: 7rem;
+
+  height: 13rem;
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  z-index: 0;
+  position: relative;
+  justify-content: space-between;
+
+  @include media(tab-port) {
+    height: 12rem;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -9,24 +24,18 @@
     right: 0;
     height: 20rem;
     background-image: linear-gradient(120deg, #4481eb 0%, #04befe 100%);   
-    z-index: -1;
+    z-index: -10;
   }
 
 
-  @extend %container;
-  $size: 7rem;
-
-  height: 13rem;
-  display: flex;
-  align-items: center;
-  z-index: 1;
-  position: relative;
-
   .area-profile {
-    flex: 1 0 auto;
-    position: relative;
+    flex: 0 1 auto;
     display: flex;
     align-items: center;
+
+    @include media(tab-port) {
+      flex-direction: row-reverse;
+    }
 
     .profile {
       width: $size;
@@ -41,6 +50,11 @@
 
       @include radius(60rem);
 
+      @include media(tab-port) {
+        width: $size - 1.5rem;
+        height: $size - 1.5rem;
+      }
+
   
     }
 
@@ -48,23 +62,31 @@
       height: $size;
       display: flex;
       align-items: flex-start;
-      align-content: flex-end;
-      justify-content: flex-start;
+      justify-content: flex-end;
       flex-direction: column;
+      margin-left: 2rem;
 
-      margin: {
-        left: 2rem;
+      @include media(tab-port) {
+        height: $size - 1rem;
+        margin: 0 2rem 0 0;
+        align-items: flex-end;
       }
+
+      
 
       h1 {
         color: $white;
         display: inline-block;
         @include font(400, 1.7rem);
-        margin-bottom: .4rem
+        margin-bottom: .4rem;
+
+        @include media(tab-port) {
+          @include font(400, 1.3rem);
+        }
       }
 
       p {
-        @include font(300, .9rem);
+        @include font(300, .85rem);
         color: rgba($white, .9);
       }
 
@@ -89,6 +111,26 @@
     }
   }
 
+  .btnMobile {
+    border: none;
+    background: transparent;
+    padding: .6rem .9rem;
+    color: rgba($white, .4);
+    display: none;
+    font-size: 2.5rem;
+    line-height: 0;
+
+    &:active {
+      background-color: rgba($white, .15);
+      @include radius();
+    }
+
+
+    @include media(tab-port) {
+      display: block;
+    }
+  }
+  
   
 }
 

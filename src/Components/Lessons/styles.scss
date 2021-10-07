@@ -3,22 +3,22 @@
     flex-grow: 1;
 
     .container-audio {
-        border: solid 1px transparent;
+        // border: solid 1px transparent;
         @include radius(.2rem);
-        padding: 1rem .6rem;
+        padding: 1.14rem .6rem;
         display: flex;
         align-items: center;
         transition: $transition;
 
         &:hover {
             // box-shadow: rgba($black, .5) 2px 2px 25px -10px;
-            border: solid 1px lighten($cyan, 10%);
-            background-color: lighten($gray, 16%);
+            // border: solid 1px lighten($cyan, 10%);
+            background-color: lighten($cyan, 15%);
         }
 
-        &:not(:last-of-type) {
-            margin-bottom: .3rem;
-        }
+        // &:not(:last-of-type) {
+        //     margin-bottom: .3rem;
+        // }
 
         .lesson-id {
             flex: 0 0 auto;
@@ -37,7 +37,7 @@
         .lesson-name {
             flex: 1 0 auto;
             // border: solid 1px lighten($green, 5%);
-            background-color: lighten($green, 47%);
+            background-color: lighten($orange, 25%);
             padding: .45rem 1rem;
             margin: 0 .6rem;
             @include font(400, .85rem);

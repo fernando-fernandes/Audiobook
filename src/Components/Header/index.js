@@ -1,10 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faPen, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function Header({profile}) {
+export default function Header({ profile, openBtnMobile }) {
     return (
         <div className="header-container">
+
+            <button type="button" className="btnMobile" onClick={openBtnMobile}>
+                <FontAwesomeIcon icon={faBars} />
+            </button>
 
             <div className="area-profile">
                 <div className="profile">
@@ -17,19 +21,8 @@ export default function Header({profile}) {
                 </div>
             </div>
 
-            <div className="area-settings">
-                {/* <p>id: {profile.profileID}</p> */}
 
-                {
-                    // profile.profileSubject.map( i => {
-                    //     return(
-                    //         <p>{i}</p>
-                    //     )
-                    // })
-                }
 
-                
-            </div>
         </div>
     )
 }

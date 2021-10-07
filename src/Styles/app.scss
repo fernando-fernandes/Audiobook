@@ -6,6 +6,14 @@
 
 body {
   font-family: $openSans;
+
+  @include media(tab-port) {
+    &.noScroll {
+      overflow: hidden;
+    }
+  }
+
+  
 }
 
 .container {
@@ -18,7 +26,6 @@ body {
   @extend %container;
   display: flex;
   align-items: flex-start;
-  position: relative;
   z-index: 1;
   
 
@@ -28,6 +35,23 @@ body {
     width: 30%;
     flex: 0 0 auto;
     box-shadow: rgba($black, .1) 0 -10px 20px -4px;
+    position: relative;
+    z-index: 1;
+
+    .closeBtnMobile {
+      display: none;
+      float: right;
+      background: none;
+      padding: .5rem .7rem;
+      border: none;
+      margin-bottom: .8rem;
+      color: $white;
+      @include radius();
+
+      &:active {
+        background: rgba($white, .1);
+      }
+    }
   }
 
   .col-right {
@@ -35,7 +59,45 @@ body {
     flex: 1 0 auto;
     @include radius(.3rem);
     margin-left: 2rem;
-    padding: 1rem;
+    // padding: 1rem;
     box-shadow: rgba($black, .1) 0 -10px 20px -4px;
+    position: relative;
+    z-index: 1;
+    
   }
+
+  @include media(tab-port) {
+      
+    .col-left {
+      background-color: lighten($gray, 10%);
+      background-image: linear-gradient(120deg, #4481eb 0%, #04befe 100%); 
+      position: fixed;
+      top: 0;
+      left: -100%;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      padding: 1.5rem;
+      overflow-y: auto;
+      transition: all 150ms ease-in-out;
+      border: none;
+
+      &.active {
+        left: 0;
+      }
+
+      .closeBtnMobile {
+        display: block;
+      }
+    }
+
+    .col-right {
+      margin: 0;
+    }
+
+
+  }
+
 }

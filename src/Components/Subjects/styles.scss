@@ -4,6 +4,7 @@
   background-color: lighten($gray, 10%);
   border-radius: .3rem .3rem 0 0;
   padding: 1rem;
+  clear: both;
 
   .subjects {
     margin-bottom: 1rem;
@@ -36,11 +37,15 @@
       height: 3rem;
       display: inline-flex;
       align-items: center;
-      border: solid 1px lighten($cyan, 15%);
+      // border: solid 1px lighten($cyan, 15%);
       @include radius(.3rem);
 
-      padding: 0.5rem {
-        right: 1.5rem;
+      padding: 0.7rem {
+        right: 1.3rem;
+      }
+
+      @include media(min-max-tab-port ) {
+        padding: .5rem 1rem;
       }
 
       .flag-name_img {
@@ -52,21 +57,26 @@
         @include font(400, 0.9rem);
         color: rgba($black, .7);
         margin-left: 0.7rem;
+
+        @include media(min-max-tab-port ) {
+          display: none;
+        }
       }
     }
 
     &:hover {
       input ~ .flag-name {
-        background-color: rgba($blue, 0.7);
+        // background-color: rgba($blue, 0.7);
+        background-color: rgba($white, 0.35);
 
-        .flag-name_title  {
-          color: $white;
-        }
+        // .flag-name_title  {
+        //   color: $white;
+        // }
       }
     }
 
     input:checked ~ .flag-name {
-      background: rgba(#3165cf, 0.9);
+      background: rgba(#3165cf, 0.6);
       
       box-shadow: rgba($black, 0.5) 5px 5px 30px -10px;
       
@@ -75,4 +85,5 @@
       }
     }
   }
+
 }

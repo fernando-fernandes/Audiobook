@@ -3,7 +3,12 @@ $transition: all 90ms ease-in-out;
 
 
 %container {
-    padding: 0 7rem;
+    padding: 0 5rem;
+
+    @include media(tab-port) {
+        padding: 0 1rem;
+    }
+
 }
 
 @mixin  font($weight, $size: 1rem, $family: $openSans) {

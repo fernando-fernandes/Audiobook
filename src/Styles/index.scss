@@ -17,6 +17,10 @@
 html, body {
     font-size: 16px;
     height: 100%;
+
+    @include media(tab-port) {
+        font-size: 13px;
+      }
 }
 
 a, button {
