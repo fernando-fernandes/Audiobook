@@ -3,6 +3,7 @@ import Header from './Components/Header';
 import Levels from './Components/Levels';
 import Lessons from './Components/Lessons';
 import Subjects from './Components/Subjects';
+import Loading from './Components/Loading';
 import { useEffect, useState } from 'react';
 import api from './Services/api'
 
@@ -54,7 +55,7 @@ function App() {
 
     const getLevels = async (id) => {
 
-        //setLoading(true);
+        // setLoading(true);
 
         try {
             const response = await api.get(`/SubjectDetail/${id}`)
@@ -65,7 +66,7 @@ function App() {
             console.error(err)
 
         } finally {
-            //setLoading(false);
+            // setLoading(false);
         }
 
     }
@@ -117,10 +118,12 @@ function App() {
 
 
     if (loading) {
-        return <p>Carregando...</p>;
+        return(
+            <div className="container-loading">
+                <Loading/>
+            </div>
+        ) 
     }
-
-
 
 
     return (
