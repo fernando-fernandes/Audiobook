@@ -133,15 +133,15 @@ function App() {
             <div className="content">
 
                     <div className={`col-left ${btnMobile ? 'active' : ''}`}>
-                        <Subjects subject={displpaySubject} handleSubject={handleSubject} />
 
                         <button type="button" className="closeBtnMobile" onClick={handleBtnMobile}>Fechar</button>
 
+                        <Subjects subject={displpaySubject} handleSubject={handleSubject} />
 
                         <div className="container-levels">
                             <Levels level={level} handleLevel={handleLevel} />
                         </div>
-
+                        
                     </div>
 
                 <div className="col-right">
