@@ -5,7 +5,9 @@ import Lessons from './Components/Lessons';
 import Subjects from './Components/Subjects';
 import Loading from './Components/Loading';
 import { useEffect, useState } from 'react';
-import api from './Services/api'
+import api from './Services/api';
+
+
 
 function App() {
 
@@ -36,7 +38,7 @@ function App() {
 
                 setDisplaySubject(data);
 
-                
+
 
             } catch (err) {
                 console.error(err)
@@ -112,28 +114,29 @@ function App() {
             body.classList.add('noScroll')
         }
 
-        
+
 
     }
 
 
     if (loading) {
-        return(
+        return (
             <div className="container-loading">
-                <Loading/>
+                <Loading />
             </div>
-        ) 
+        )
     }
 
 
     return (
-        <div className="container">
+                
+            <div className="container">
 
-            <Topbar />
+                <Topbar />
 
-            <Header profile={studant} openBtnMobile={handleBtnMobile} />
+                <Header profile={studant} openBtnMobile={handleBtnMobile} />
 
-            <div className="content">
+                <div className="content">
 
                     <div className={`col-left ${btnMobile ? 'active' : ''}`}>
 
@@ -144,15 +147,15 @@ function App() {
                         <div className="container-levels">
                             <Levels level={level} handleLevel={handleLevel} />
                         </div>
-                        
+
                     </div>
 
-                <div className="col-right">
-                    <Lessons lesson={lesson} />
+                    <div className="col-right">
+                        <Lessons lesson={lesson} />
+                    </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
     );
 }
 

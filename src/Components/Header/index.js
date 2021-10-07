@@ -2,13 +2,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faPen, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
+
 export default function Header({ profile, openBtnMobile }) {
     return (
         <div className="header-container">
 
-            <button type="button" className="btnMobile" onClick={openBtnMobile}>
+            
+                <button type="button" className="btnMobile" onClick={openBtnMobile}>
                 <FontAwesomeIcon icon={faBars} />
-            </button>
+                </button>
 
             <div className="area-profile">
                 <div className="profile">
