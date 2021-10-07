@@ -4,10 +4,8 @@ import Levels from './Components/Levels';
 import Lessons from './Components/Lessons';
 import Subjects from './Components/Subjects';
 import Loading from './Components/Loading';
-import { useEffect, useState } from 'react';
 import api from './Services/api';
-
-
+import { useEffect, useState } from 'react';
 
 function App() {
 
@@ -133,7 +131,6 @@ function App() {
             <div className="container">
 
                 <Topbar />
-
                 <Header profile={studant} openBtnMobile={handleBtnMobile} />
 
                 <div className="content">

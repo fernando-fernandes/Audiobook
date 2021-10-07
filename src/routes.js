@@ -1,4 +1,4 @@
-import {Switch, Route} from 'react-router-dom'
+import { Switch, Route} from 'react-router-dom'
 
 import App from './App'
 import User from './Pages/User'

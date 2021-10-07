@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faPen, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
-
 export default function Header({ profile, openBtnMobile }) {
     return (
         <div className="header-container">
