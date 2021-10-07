@@ -1,5 +1,4 @@
 import ReactLoading from 'react-loading';
-import './styles.scss'
 
 export default function Loading() {
     return(

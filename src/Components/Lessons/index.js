@@ -8,7 +8,7 @@ export default function Lessons(props) {
                             <span className="lesson-id">{item.lessonID}</span>
                             <p className="lesson-name">{item.lessonName}</p>
                             {/* <p>Duração: {item.lessonDuration}</p> */}
-                            <audio controls>
+                            <audio controls preload="metadata">
                                 <source src={item.lessonURL} type="audio/mpeg" />
                             </audio>
                         </div>
