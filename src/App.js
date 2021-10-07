@@ -8,12 +8,13 @@ import api from './Services/api'
 
 function App() {
 
-    const [studant, setStudant] = useState([]);
-    const [displpaySubject, setDisplaySubject] = useState([]);
-    const [level, setLevel] = useState([]);
-    const [lesson, setLesson] = useState([]);
-    const [btnMobile, setBtnMobile] = useState(false);
+    const [studant, setStudant] = useState([]); // Atribui o nome do aluno
+    const [displpaySubject, setDisplaySubject] = useState([]); // Atribui os btns das disciplinas
+    const [level, setLevel] = useState([]); // Atribui os dados dos Níveis
+    const [lesson, setLesson] = useState([]); // Atribui os dados das lições
+    const [btnMobile, setBtnMobile] = useState(false); // btn para abrir o menu responsivo
 
+    //const [isChecked, setIsChecked] = useState(false);
     const [loading, setLoading] = useState(false);
 
 
@@ -33,6 +34,8 @@ function App() {
                 }
 
                 setDisplaySubject(data);
+
+                
 
             } catch (err) {
                 console.error(err)
@@ -71,6 +74,7 @@ function App() {
     function handleSubject(e) {
 
         let subjectId = e.currentTarget.value
+
 
         getLevels(subjectId);
 
@@ -113,7 +117,7 @@ function App() {
 
 
     if (loading) {
-        return <p>Data is loading...</p>;
+        return <p>Carregando...</p>;
     }
 
 
@@ -126,26 +130,23 @@ function App() {
 
             <Header profile={studant} openBtnMobile={handleBtnMobile} />
 
-
             <div className="content">
 
-
                     <div className={`col-left ${btnMobile ? 'active' : ''}`}>
+                        <Subjects subject={displpaySubject} handleSubject={handleSubject} />
+
                         <button type="button" className="closeBtnMobile" onClick={handleBtnMobile}>Fechar</button>
 
-                        <Subjects subject={displpaySubject} handleSubject={handleSubject} />
 
                         <div className="container-levels">
                             <Levels level={level} handleLevel={handleLevel} />
                         </div>
-                    </div>
 
-                
+                    </div>
 
                 <div className="col-right">
                     <Lessons lesson={lesson} />
                 </div>
-
             </div>
 
         </div>
